@@ -635,6 +635,33 @@
       z-index: 1;
     }
 
+    /* Logo overlay centered on top of the spinning globe */
+    .globe-logo-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      height: auto;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      opacity: 0;
+      pointer-events: none;
+      filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.45))
+              drop-shadow(0 0 24px rgba(201, 168, 76, 0.18));
+      animation: globeLogoFadeIn 1.6s ease-out 0.3s forwards;
+    }
+
+    @keyframes globeLogoFadeIn {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -48%) scale(0.96);
+      }
+      to {
+        opacity: 0.92;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
     /* =========================================================
        SCROLL REVEAL (JS-driven)
     ========================================================= */
@@ -2553,6 +2580,7 @@
           <div class="hero-globe-col" aria-hidden="true">
             <div class="globe-wrap">
               <canvas id="globe-canvas"></canvas>
+              <img src="Logo.png" alt="Sesh Society" class="globe-logo-overlay" />
             </div>
           </div>
 
